@@ -1,8 +1,14 @@
 package go_fstg_modexam
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 // Hi example for output
-func Hi(name string) string {
-	return fmt.Sprintf("Hello, %s! You are greate man!!!4444", name)
+func Hi(name, info string) (string, error) {
+	if info == "" {
+		return "", errors.New("unknown information")
+	}
+	return fmt.Sprintf("Hello, %s!!!, \nInformation for you:%s", name, info), nil
 }
